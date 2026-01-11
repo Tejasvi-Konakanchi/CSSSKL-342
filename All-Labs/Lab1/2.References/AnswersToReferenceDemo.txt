@@ -1,0 +1,44 @@
+/*
+ *  Course: CSSSKL342A
+ *  Lab 1: Toolchains, type conversion, references, file I/O
+ *
+ *  AnswerstoReferenceDemo.txt
+ *  Author: Tejasvi Konakanchi
+ *  Date: 1/10/2025
+ *
+ */
+
+Q01. Please name your answer file as “AnswersToReferenceDemo.txt.”
+A01. The file has been named as advised.
+
+Q02. Download and try to compile the file. 
+     Why doesn't it compile? I'm not just looking for which line(s) have the problem, but rather 
+     what is wrong with those line(s).
+A02. The program does not compile because it declares a reference variable without initializing it.
+     The line 55: "int& xr;" is invalid because it is a reference to nothing. C++ does not allow null references like JAVA,
+     so the compiler throws an error. We can fix it by having "int& xr" refere an object or a value.
+
+Q03. What is happening when onePlus() is called? 
+     In other words, what exactly does the function receive as an argument? 
+     Why isn't the value of the variable in main() altered?
+A03. When onePlus() is called it recieves a copy of the argument.
+     The contents of the onePlus() alter the copy only, not the variable in the main().
+
+
+Q04. Conversely, consider the call to refIncrement(). 
+     What is the argument here and why is the value of the variable in main() changed?
+A04. 'a' here is a reference to the original variable. No copy is made here. a++ directly modifies the variable in main. The "int& a" 
+     is the reason why this is all happening.
+
+Q05. Finally, consider the code related to value(). First of all, make sure you understand what Pair is and what the declaration of pairs means.
+A05. A Pair is a simple container that holds two values together. The two values can be of different types, and they can be stored as a single unit.
+     The declaration of pais means that they behave like a key-value store.
+
+Q06. Next, consider a call to value(). What does the function receive as an argument? What is the meaning of const in this context?
+A06. The function recieves a reference to a string. It is not a copy of the string. The function cannot modify s, due to the "const" keyword.
+
+Q07. What does value() return? How can it be legal and what does it mean to apply the ++operator to its return value?
+A07. The function value() returns an integer reference (int&). The integer it is referring to is the val field of a Pair
+     stored in the global vector pairs. It is legal because the returned refers to data that continues to exist after the function ends. 
+     The vector pairs is global, so its elements are not destroyed when value() is returned. Since value() returnds a reference, it behaves like a 
+     variable, the ++ operator increments the val associated with "aa".

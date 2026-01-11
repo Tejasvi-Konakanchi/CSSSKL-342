@@ -8,45 +8,41 @@
  *
  */
 
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 int myRoundingFunction(double value) {
 
-    
-    int integerPart = static_cast<int>(value);
-    double fractionPart = value - integerPart;
+  int integerPart = static_cast<int>(value);
+  double fractionPart = value - integerPart;
 
-    //for positive values
-    if(value > 0){
-        //Rounding up, if value is greater than 0.5 
-        if(fractionPart >= 0.5){
-            return integerPart + 1;
-        }
-
-        //Rounding down, if value is less than 0.5 
-        if(fractionPart < 0.5){
-            return integerPart;
-        }
+  // for positive values
+  if (value > 0) {
+    // Rounding up, if value is greater than 0.5
+    if (fractionPart >= 0.5) {
+      return integerPart + 1;
     }
 
+    // Rounding down, if value is less than 0.5
+    if (fractionPart < 0.5) {
+      return integerPart;
+    }
+  }
 
-    //for negative values
-    if(value < 0){
-        //Rounding up, if value is greater than 0.5 
-        if(fractionPart >= -0.5){
-            return integerPart;
-        }
-
-        //Rounding down, if value is less than 0.5 
-        if(fractionPart <-0.5){
-            return integerPart-1;
-        }
+  // for negative values
+  if (value < 0) {
+    // Rounding up, if value is greater than 0.5
+    if (fractionPart >= -0.5) {
+      return integerPart;
     }
 
-    
+    // Rounding down, if value is less than 0.5
+    if (fractionPart < -0.5) {
+      return integerPart - 1;
+    }
+  }
 
-return 0;
+  return 0;
 }
 
 int main() {
